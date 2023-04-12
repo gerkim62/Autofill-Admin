@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/ec6d630e9e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="index.js"></script>
+  </head>
+  <body class="font-mono">
+    <nav class="bg-slate-800 text-white py-4 fixed w-screen">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <a href="#" class="font-bold text-xl">Admin Dashboard</a>
+        <div class="flex items-center">
+          <a href="#approvals" class="hidden sm:block mr-4">Approvals</a>
+          <a href="#notifications" class="hidden sm:block mr-4"
+            >Notifications</a
+          >
+          <a href="#api-details" class="hidden sm:block mr-4">API Details</a>
+          <button id="hamburger" class="sm:hidden mr-4 -mt-0">
+            <svg
+              class="fill-current h-6 w-6"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="sm:hidden">
+        <div id="mobile-nav" class="container hidden mx-auto px-4 py-2">
+          <a
+            href="#approvals"
+            class="block sm:inline-block text-white font-medium mr-4 mt-4 md:mt-0"
+            >Approvals</a
+          >
+          <a
+            href="#notifications"
+            class="block md:inline-block text-white font-medium mr-4 mt-4 md:mt-0"
+            >Notifications</a
+          >
+          <a
+            href="#api-details"
+            class="block md:inline-block text-white font-medium mr-4 mt-4 md:mt-0"
+            >API Details</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div data="for-nav-spacing" class="h-10 bg-orange-500"></div>
+
+    <!-- Approvals -->
+    <section id="approvals" class="scroll-mt-10 bg-gray-100 py-8">
+      <div class="container mx-auto px-4">
+        <h2 class="text-lg font-bold mb-4">Manage Approvals</h2>
+        <div class="flex mb-4">
+          <label for="approval-status" class="mr-2 -mb-2"
+            >Filter by Status:</label
+          >
+          <select
+            name="approval-status"
+            id="approval-status"
+            class="border-gray-400 border py-2 px-3 -mt-1"
+          >
+            <option value="">All</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="revoked">Revoked</option>
+          </select>
+        </div>
+        <table class="w-full table-auto max-w-full border text-left">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="px-4 py-2">ID</th>
+              <th class="px-4 py-2">Name</th>
+              <th class="px-4 py-2 hidden sm:table-cell">Email</th>
+              <th class="px-4 py-2">Status</th>
+              <th class="px-4 py-2">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-4 py-2">1</td>
+              <td class="border px-4 py-2">John Doe</td>
+              <td class="border px-4 py-2 hidden sm:table-cell">
+                john.doe@example.com
+              </td>
+              <td class="border px-4 py-2">Pending</td>
+              <td class="border px-4 py-2 text-center">
+                <button
+                  title="approve"
+                  class="text-green-500 py-2 px-4 rounded hover:bg-green-200 my-auto"
+                >
+                  <i class="fas fa-check-circle"></i>
+                </button>
+                <button
+                  title="revoke"
+                  class="hidden text-red-500 py-2 px-4 rounded hover:bg-red-100"
+                >
+                  <i class="fas fa-ban"></i>
+                </button>
+              </td>
+            </tr>
+            <!-- Add more rows for other approvals -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Notifications -->
+
+    <section id="notifications" class="scroll-mt-10 bg-white py-8">
+      <div class="container mx-auto px-4">
+        <h2 class="text-lg font-bold mb-4">Manage Notifications</h2>
+        <table class="w-full border mb-3">
+          <thead class="text-left">
+            <tr class="bg-gray-200">
+              <th class="px-4 py-2">ID</th>
+              <th class="px-4 py-2">Message</th>
+              <th class="px-4 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border px-4 py-2">1</td>
+              <td class="border px-4 py-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </td>
+              <td class="flex borde p-2">
+                <button
+                  title="edit"
+                  class="text-green-500 py-2 px-4 rounded hover:bg-green-100 mr-2"
+                >
+                  <i class="fas fa-edit mr-0"></i>
+                </button>
+                <button
+                  title="delete"
+                  class="text-red-500 py-2 px-4 rounded hover:bg-red-100"
+                >
+                  <i class="fas fa-trash-alt mr-0"></i>
+                </button>
+              </td>
+            </tr>
+            <!-- Add more rows for other notifications -->
+          </tbody>
+        </table>
+        <button
+          type="submit"
+          class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+        >
+          <i class="fas fa-plus-circle"></i> Notification
+        </button>
+      </div>
+    </section>
+
+    <!-- API Details -->
+    <section
+      id="api-details"
+      class="scroll-mt-10 bg-gray-100 py-8 min-h-screen"
+    >
+      <div class="container mx-auto px-4">
+        <h2 class="text-lg font-bold mb-4">Update API Details</h2>
+        <form>
+          <div class="mb-4">
+            <label for="api-key" class="block font-bold mb-2">API Key</label>
+            <input
+              type="text"
+              id="api-key"
+              name="api-key"
+              class="w-full border-gray-400 py-2 px-3"
+              value="YOUR_API_KEY"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="temperature" class="block font-bold mb-2"
+              >Temperature</label
+            >
+            <input
+              type="text"
+              id="temperature"
+              name="temperature"
+              class="w-full border-gray-400 py-2 px-3"
+              value="0.1"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="message-key" class="block font-bold mb-2"
+              >Message Key</label
+            >
+            <input
+              type="text"
+              id="message-key"
+              name="message-key"
+              class="w-full border-gray-400 py-2 px-3"
+              value="YOUR_MESSAGE_KEY"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="model" class="block font-bold mb-2">Model</label>
+            <input
+              type="text"
+              id="model"
+              name="model"
+              class="w-full border-gray-400 py-2 px-3"
+              value="YOUR_MODEL"
+            />
+          </div>
+
+          <!-- apiurl -->
+          <div class="mb-4">
+            <label for="api-url" class="block font-bold mb-2">API URL</label>
+            <input
+              type="text"
+              id="api-url"
+              name="api-url"
+              class="w-full border-gray-400 py-2 px-3"
+              value="https://api.spoonacular.com/recipes/findByIngredients"
+            />
+          </div>
+
+          <!-- method -->
+          <div class="mb-4">
+            <label for="method" class="block font-bold mb-2">Method</label>
+            <select
+              id="method"
+              name="method"
+              class="w-full border-gray-400 py-2 px-3"
+            >
+              <option value="GET">GET</option>
+              <option selected value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+          </div>
+
+          <!-- primaryassistantmessage -->
+          <div class="mb-4">
+            <label for="primary-assistant-message" class="block font-bold mb-2"
+              >Primary Assistant Message</label
+            >
+            <textarea
+              id="primary-assistant-message"
+              name="primary-assistant-message"
+              class="w-full border-gray-400 py-2 px-3"
+            ></textarea>
+          </div>
+
+          <!-- secondaryassistantmessage -->
+          <div class="mb-4">
+            <label
+              for="secondary-assistant-message"
+              class="block font-bold mb-2"
+              >Secondary Assistant Message</label
+            >
+            <textarea
+              id="secondary-assistant-message"
+              name="secondary-assistant-message"
+              class="w-full border-gray-400 py-2 px-3"
+            ></textarea>
+          </div>
+
+          <!-- errorMessage -->
+          <div class="mb-4">
+            <label for="error-message" class="block font-bold mb-2"
+              >Error Message</label
+            >
+            <textarea
+              id="error-message"
+              name="error-message"
+              class="w-full border-gray-400 py-2 px-3"
+            ></textarea>
+          </div>
+
+          <button
+            title="save changes"
+            type="submit"
+            class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          >
+            <i class="fas fa-save"></i> Save Changes
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+      // Add any JavaScript here
+    </script>
+  </body>
+</html>

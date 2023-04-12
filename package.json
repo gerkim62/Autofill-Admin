@@ -1,0 +1,11 @@
+{
+  "name": "blackorred",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build-css": "npx tailwindcss -i ./src/style.css -o ./dist/style.css --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}
